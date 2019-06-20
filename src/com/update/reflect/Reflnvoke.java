@@ -207,11 +207,33 @@ public class Reflnvoke {
     /**
      * 获取一个字段的值
      */
+    public static Object getFieldObject(Object object,
+                                        String fieldName) {
+        return getFieldObject(object.getClass(), object, fieldName);
+    }
+
+    /**
+     * 获取一个字段的值
+     */
     public static Object getFieldObject(String className,
                                         Object object,
                                         String fieldName) {
         try {
             Class clazz = Class.forName(className);
+            return getFieldObject(clazz, object, fieldName);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 获取一个字段的值
+     */
+    public static Object getFieldObject(Class clazz,
+                                        Object object,
+                                        String fieldName) {
+        try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
             return field.get(object);
