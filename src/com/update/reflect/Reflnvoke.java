@@ -33,7 +33,9 @@ public class Reflnvoke {
     /**
      * 反射构造函数并调用 一个参数
      */
-    public static Object createObject(String className, Class pareType, Object pareValue) {
+    public static Object createObject(String className,
+                                      Class pareType,
+                                      Object pareValue) {
         try {
             Class clazz = Class.forName(className);
             return createObject(clazz, pareType, pareValue);
@@ -46,7 +48,9 @@ public class Reflnvoke {
     /**
      * 反射构造函数并调用 一个参数
      */
-    public static Object createObject(Class clazz, Class pareType, Object pareValue) {
+    public static Object createObject(Class clazz,
+                                      Class pareType,
+                                      Object pareValue) {
         Class[] pareTypes = new Class[]{pareType};
         Object[] pareValues = new Object[]{pareValue};
         return createObject(clazz, pareTypes, pareValues);
@@ -302,14 +306,18 @@ public class Reflnvoke {
     /**
      * 设置一个静态字段的值
      */
-    public static void setStaticFieldObject(String className, String fieldName, Object fieldValue) {
+    public static void setStaticFieldObject(String className,
+                                            String fieldName,
+                                            Object fieldValue) {
         setFieldObject(className, null, fieldName, fieldValue);
     }
 
     /**
      * 设置一个静态字段的值
      */
-    public static void setStaticFieldObject(Class clazz, String fieldName, Object fieldValue) {
+    public static void setStaticFieldObject(Class clazz,
+                                            String fieldName,
+                                            Object fieldValue) {
         setFieldObject(clazz, null, fieldName, fieldValue);
     }
 }
