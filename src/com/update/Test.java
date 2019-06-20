@@ -13,7 +13,8 @@ public class Test {
 //        testCreateObject();
 //        testInvokeInstanceMethod();
 //        testInvokeStaticMethod();
-        testGetFieldObject();
+//        testGetFieldObject();
+        testSetFieldObject();
     }
 
     private static void testCreateObject() {
@@ -47,7 +48,20 @@ public class Test {
         String className = User.class.getName();
         User user = new User();
         String fieldName = "name";
-        System.out.println(Reflnvoke.getFieldObject(className,user,fieldName));
+        System.out.println(Reflnvoke.getFieldObject(className, user, fieldName));
+    }
+
+    private static void testSetFieldObject() {
+        String className = User.class.getName();
+        User user = new User();
+        String fieldName = "name";
+        String fieldValue = "test";
+
+        System.out.println("before " + user);
+
+        Reflnvoke.setFieldObject(className, user, fieldName, fieldValue);
+
+        System.out.println("after " + user);
     }
 
 }

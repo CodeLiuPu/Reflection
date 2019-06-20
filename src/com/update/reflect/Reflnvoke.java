@@ -85,4 +85,22 @@ public class Reflnvoke {
         return null;
     }
 
+    /**
+     * 设置一个字段的值
+     */
+    public static void setFieldObject(String className,
+                                      Object object,
+                                      String fieldName,
+                                      String fieldValue) {
+        try {
+            Class clazz = Class.forName(className);
+            Field field = clazz.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            field.set(object, fieldValue);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }
