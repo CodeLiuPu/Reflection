@@ -9,6 +9,10 @@ public class User {
     public Integer id;
     public String name;
 
+    public User() {
+        this(-1, "default");
+    }
+
     public User(Integer id, String name) {
         this.id = id;
         this.name = name;

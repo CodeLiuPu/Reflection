@@ -17,7 +17,8 @@ public class Test {
         String className = User.class.getName();
         Class[] p = {Integer.class, String.class};
         Object[] v = {1, "john"};
-        User user = (User) Reflnvoke.createObject(className, p, v);
+//        User user = (User) Reflnvoke.createObject(className, p, v);
+        User user = (User) Reflnvoke.createObject(className, null, null);
         System.out.println(user);
     }
 
