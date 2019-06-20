@@ -11,7 +11,8 @@ public class Test {
 
     public static void main(String[] args) {
 //        testCreateObject();
-        testInvokeInstanceMethod();
+//        testInvokeInstanceMethod();
+        testInvokeStaticMethod();
     }
 
     private static void testCreateObject() {
@@ -30,6 +31,15 @@ public class Test {
         Object[] v = {};
 
         Reflnvoke.invokeInstanceMethod(user, methodName, c, v);
+    }
+
+    private static void testInvokeStaticMethod() {
+        String className = User.class.getName();
+        String methodName = "sing";
+        Class[] c = {};
+        Object[] v = {};
+
+        Reflnvoke.invokeStaticMethod(className, methodName, c, v);
     }
 
 }

@@ -49,4 +49,21 @@ public class Reflnvoke {
         return null;
     }
 
+    /**
+     * 调用静态方法
+     */
+    public static Object invokeStaticMethod(String className,
+                                            String methodName,
+                                            Class[] pareTyples,
+                                            Object[] pareValues) {
+        try {
+            Class clazz = Class.forName(className);
+            Method method = clazz.getDeclaredMethod(methodName, pareTyples);
+            method.setAccessible(true);
+            return method.invoke(null, pareValues);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
 }

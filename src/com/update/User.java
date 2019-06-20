@@ -22,6 +22,10 @@ public class User {
         System.out.println("Hello");
     }
 
+    private static void sing() {
+        System.out.println("sing");
+    }
+
     @Override
     public String toString() {
         return "User{" +
