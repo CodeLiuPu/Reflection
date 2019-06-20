@@ -248,7 +248,7 @@ public class Reflnvoke {
      */
     public static void setFieldObject(Object object,
                                       String fieldName,
-                                      String fieldValue) {
+                                      Object fieldValue) {
         setFieldObject(object.getClass(), object, fieldName, fieldValue);
     }
 
@@ -258,7 +258,7 @@ public class Reflnvoke {
     public static void setFieldObject(String className,
                                       Object object,
                                       String fieldName,
-                                      String fieldValue) {
+                                      Object fieldValue) {
         try {
             Class clazz = Class.forName(className);
             setFieldObject(clazz, object, fieldName, fieldValue);
@@ -273,7 +273,7 @@ public class Reflnvoke {
     public static void setFieldObject(Class clazz,
                                       Object object,
                                       String fieldName,
-                                      String fieldValue) {
+                                      Object fieldValue) {
         try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
@@ -281,6 +281,22 @@ public class Reflnvoke {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    /**
+     * 获取一个静态字段的值
+     */
+    public static Object getStaticFieldObject(String className,
+                                              String fieldName) {
+        return getFieldObject(className, null, fieldName);
+    }
+
+    /**
+     * 获取一个静态字段的值
+     */
+    public static Object getStaticFieldObject(Class clazz,
+                                              String fieldName) {
+        return getFieldObject(clazz, null, fieldName);
     }
 
 }
