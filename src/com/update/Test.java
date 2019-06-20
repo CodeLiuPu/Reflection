@@ -10,11 +10,11 @@ import com.update.reflect.Reflnvoke;
 public class Test {
 
     public static void main(String[] args) {
-//        testCreateObject();
+        testCreateObject();
 //        testInvokeInstanceMethod();
 //        testInvokeStaticMethod();
 //        testGetFieldObject();
-        testSetFieldObject();
+//        testSetFieldObject();
     }
 
     private static void testCreateObject() {
@@ -22,7 +22,7 @@ public class Test {
         Class[] c = {Integer.class, String.class};
         Object[] v = {1, "john"};
 //        User user = (User) Reflnvoke.createObject(className, c, v);
-        User user = (User) Reflnvoke.createObject(className, null, null);
+        User user = (User) Reflnvoke.createObject(className);
         System.out.println(user);
     }
 
