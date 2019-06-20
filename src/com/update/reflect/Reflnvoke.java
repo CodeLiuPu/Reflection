@@ -246,19 +246,41 @@ public class Reflnvoke {
     /**
      * 设置一个字段的值
      */
+    public static void setFieldObject(Object object,
+                                      String fieldName,
+                                      String fieldValue) {
+        setFieldObject(object.getClass(), object, fieldName, fieldValue);
+    }
+
+    /**
+     * 设置一个字段的值
+     */
     public static void setFieldObject(String className,
                                       Object object,
                                       String fieldName,
                                       String fieldValue) {
         try {
             Class clazz = Class.forName(className);
+            setFieldObject(clazz, object, fieldName, fieldValue);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 设置一个字段的值
+     */
+    public static void setFieldObject(Class clazz,
+                                      Object object,
+                                      String fieldName,
+                                      String fieldValue) {
+        try {
             Field field = clazz.getDeclaredField(fieldName);
             field.setAccessible(true);
             field.set(object, fieldValue);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
     }
 
 }
