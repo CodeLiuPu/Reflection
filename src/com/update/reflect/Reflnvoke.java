@@ -1,6 +1,7 @@
 package com.update.reflect;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Field;
 import java.lang.reflect.Method;
 
 /**
@@ -66,4 +67,22 @@ public class Reflnvoke {
         }
         return null;
     }
+
+    /**
+     * 获取一个字段的值
+     */
+    public static Object getFieldObject(String className,
+                                        Object object,
+                                        String fieldName) {
+        try {
+            Class clazz = Class.forName(className);
+            Field field = clazz.getDeclaredField(fieldName);
+            field.setAccessible(true);
+            return field.get(object);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }

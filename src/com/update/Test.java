@@ -12,7 +12,8 @@ public class Test {
     public static void main(String[] args) {
 //        testCreateObject();
 //        testInvokeInstanceMethod();
-        testInvokeStaticMethod();
+//        testInvokeStaticMethod();
+        testGetFieldObject();
     }
 
     private static void testCreateObject() {
@@ -40,6 +41,13 @@ public class Test {
         Object[] v = {};
 
         Reflnvoke.invokeStaticMethod(className, methodName, c, v);
+    }
+
+    private static void testGetFieldObject() {
+        String className = User.class.getName();
+        User user = new User();
+        String fieldName = "name";
+        System.out.println(Reflnvoke.getFieldObject(className,user,fieldName));
     }
 
 }

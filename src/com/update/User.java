@@ -6,8 +6,8 @@ package com.update;
  * desc   :
  */
 public class User {
-    public Integer id;
-    public String name;
+    private Integer id;
+    private String name;
 
     public User() {
         this(-1, "default");
