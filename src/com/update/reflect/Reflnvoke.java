@@ -299,4 +299,17 @@ public class Reflnvoke {
         return getFieldObject(clazz, null, fieldName);
     }
 
+    /**
+     * 设置一个静态字段的值
+     */
+    public static void setStaticFieldObject(String className, String fieldName, Object fieldValue) {
+        setFieldObject(className, null, fieldName, fieldValue);
+    }
+
+    /**
+     * 设置一个静态字段的值
+     */
+    public static void setStaticFieldObject(Class clazz, String fieldName, Object fieldValue) {
+        setFieldObject(clazz, null, fieldName, fieldValue);
+    }
 }
