@@ -18,6 +18,10 @@ public class User {
         this.name = name;
     }
 
+    private void sayHello() {
+        System.out.println("Hello");
+    }
+
     @Override
     public String toString() {
         return "User{" +

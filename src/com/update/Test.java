@@ -10,16 +10,26 @@ import com.update.reflect.Reflnvoke;
 public class Test {
 
     public static void main(String[] args) {
-        testCreateObject();
+//        testCreateObject();
+        testInvokeInstanceMethod();
     }
 
     private static void testCreateObject() {
         String className = User.class.getName();
-        Class[] p = {Integer.class, String.class};
+        Class[] c = {Integer.class, String.class};
         Object[] v = {1, "john"};
-//        User user = (User) Reflnvoke.createObject(className, p, v);
+//        User user = (User) Reflnvoke.createObject(className, c, v);
         User user = (User) Reflnvoke.createObject(className, null, null);
         System.out.println(user);
+    }
+
+    private static void testInvokeInstanceMethod() {
+        User user = new User();
+        String methodName = "sayHello";
+        Class[] c = {};
+        Object[] v = {};
+
+        Reflnvoke.invokeInstanceMethod(user, methodName, c, v);
     }
 
 }

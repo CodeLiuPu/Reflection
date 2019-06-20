@@ -1,6 +1,7 @@
 package com.update.reflect;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.Method;
 
 /**
  * @author : liupu
@@ -25,4 +26,27 @@ public class Reflnvoke {
         }
         return null;
     }
+
+    /**
+     * 调用实例方法
+     */
+    public static Object invokeInstanceMethod(Object object,
+                                              String methodName,
+                                              Class[] pareTyples,
+                                              Object[] pareValues) {
+        if (null == object) {
+            return null;
+        }
+
+        try {
+            Method method = object.getClass().getDeclaredMethod(methodName, pareTyples);
+            method.setAccessible(true);
+            return method.invoke(object, pareValues);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
 }
