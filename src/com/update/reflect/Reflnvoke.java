@@ -84,7 +84,29 @@ public class Reflnvoke {
     }
 
     /**
-     * 调用实例方法
+     * 调用实例方法 无参
+     */
+    public static Object invokeInstanceMethod(Object object,
+                                              String methodName) {
+        Class[] pareTypes = {};
+        Object[] pareValues = {};
+        return invokeInstanceMethod(object, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用实例方法 一个参数
+     */
+    public static Object invokeInstanceMethod(Object object,
+                                              String methodName,
+                                              Class pareType,
+                                              Object pareValue) {
+        Class[] pareTypes = {pareType};
+        Object[] pareValues = {pareValue};
+        return invokeInstanceMethod(object, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用实例方法 多个参数
      */
     public static Object invokeInstanceMethod(Object object,
                                               String methodName,

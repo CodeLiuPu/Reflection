@@ -10,8 +10,8 @@ import com.update.reflect.Reflnvoke;
 public class Test {
 
     public static void main(String[] args) {
-        testCreateObject();
-//        testInvokeInstanceMethod();
+//        testCreateObject();
+        testInvokeInstanceMethod();
 //        testInvokeStaticMethod();
 //        testGetFieldObject();
 //        testSetFieldObject();
@@ -32,7 +32,7 @@ public class Test {
         Class[] c = {};
         Object[] v = {};
 
-        Reflnvoke.invokeInstanceMethod(user, methodName, c, v);
+        Reflnvoke.invokeInstanceMethod(user, methodName);
     }
 
     private static void testInvokeStaticMethod() {
