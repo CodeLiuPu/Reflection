@@ -11,8 +11,8 @@ public class Test {
 
     public static void main(String[] args) {
 //        testCreateObject();
-        testInvokeInstanceMethod();
-//        testInvokeStaticMethod();
+//        testInvokeInstanceMethod();
+        testInvokeStaticMethod();
 //        testGetFieldObject();
 //        testSetFieldObject();
     }
@@ -41,7 +41,7 @@ public class Test {
         Class[] c = {};
         Object[] v = {};
 
-        Reflnvoke.invokeStaticMethod(className, methodName, c, v);
+        Reflnvoke.invokeStaticMethod(className, methodName);
     }
 
     private static void testGetFieldObject() {

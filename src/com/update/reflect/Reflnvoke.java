@@ -128,7 +128,29 @@ public class Reflnvoke {
     }
 
     /**
-     * 调用静态方法
+     * 调用静态方法 无参
+     */
+    public static Object invokeStaticMethod(String className,
+                                            String methodName) {
+        Class[] pareTypes = {};
+        Object[] pareValues = {};
+        return invokeStaticMethod(className, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用静态方法 一个参数
+     */
+    public static Object invokeStaticMethod(String className,
+                                            String methodName,
+                                            Class pareType,
+                                            Object pareValue) {
+        Class[] pareTypes = {pareType};
+        Object[] pareValues = {pareValue};
+        return invokeStaticMethod(className, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用静态方法 多个参数
      */
     public static Object invokeStaticMethod(String className,
                                             String methodName,
@@ -136,6 +158,43 @@ public class Reflnvoke {
                                             Object[] pareValues) {
         try {
             Class clazz = Class.forName(className);
+            return invokeStaticMethod(clazz, methodName, pareTypes, pareValues);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    /**
+     * 调用静态方法 无参
+     */
+    public static Object invokeStaticMethod(Class clazz,
+                                            String methodName) {
+        Class[] pareTypes = {};
+        Object[] pareValues = {};
+        return invokeStaticMethod(clazz, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用静态方法 一个参数
+     */
+    public static Object invokeStaticMethod(Class clazz,
+                                            String methodName,
+                                            Class pareType,
+                                            Object pareValue) {
+        Class[] pareTypes = {pareType};
+        Object[] pareValues = {pareValue};
+        return invokeStaticMethod(clazz, methodName, pareTypes, pareValues);
+    }
+
+    /**
+     * 调用静态方法 多个参数
+     */
+    public static Object invokeStaticMethod(Class clazz,
+                                            String methodName,
+                                            Class[] pareTypes,
+                                            Object[] pareValues) {
+        try {
             Method method = clazz.getDeclaredMethod(methodName, pareTypes);
             method.setAccessible(true);
             return method.invoke(null, pareValues);
