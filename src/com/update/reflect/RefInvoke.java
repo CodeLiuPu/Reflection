@@ -9,7 +9,7 @@ import java.lang.reflect.Method;
  * date   : 2019/6/19
  * desc   :
  */
-public class Reflnvoke {
+public class RefInvoke {
 
     /**
      * 反射构造函数并调用 无参

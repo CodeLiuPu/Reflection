@@ -1,6 +1,6 @@
 package com.update;
 
-import com.update.reflect.Reflnvoke;
+import com.update.reflect.RefInvoke;
 
 /**
  * @author : liupu
@@ -21,8 +21,8 @@ public class Test {
         String className = User.class.getName();
         Class[] c = {Integer.class, String.class};
         Object[] v = {1, "john"};
-//        User user = (User) Reflnvoke.createObject(className, c, v);
-        User user = (User) Reflnvoke.createObject(className);
+//        User user = (User) RefInvoke.createObject(className, c, v);
+        User user = (User) RefInvoke.createObject(className);
         System.out.println(user);
     }
 
@@ -32,7 +32,7 @@ public class Test {
         Class[] c = {};
         Object[] v = {};
 
-        Reflnvoke.invokeInstanceMethod(user, methodName);
+        RefInvoke.invokeInstanceMethod(user, methodName);
     }
 
     private static void testInvokeStaticMethod() {
@@ -41,14 +41,14 @@ public class Test {
         Class[] c = {};
         Object[] v = {};
 
-        Reflnvoke.invokeStaticMethod(className, methodName);
+        RefInvoke.invokeStaticMethod(className, methodName);
     }
-
+    
     private static void testGetFieldObject() {
         String className = User.class.getName();
         User user = new User();
         String fieldName = "name";
-        System.out.println(Reflnvoke.getFieldObject(className, user, fieldName));
+        System.out.println(RefInvoke.getFieldObject(className, user, fieldName));
     }
 
     private static void testSetFieldObject() {
@@ -59,7 +59,7 @@ public class Test {
 
         System.out.println("before " + user);
 
-        Reflnvoke.setFieldObject(className, user, fieldName, fieldValue);
+        RefInvoke.setFieldObject(className, user, fieldName, fieldValue);
 
         System.out.println("after " + user);
     }
